@@ -72,7 +72,7 @@ const buyerNav: NavGroup[] = [
   {
     label: "Commerce",
     items: [
-      { label: "Quote Requests", href: "/rfqs/rfq_007", icon: FileText, badge: "4" },
+      { label: "Quote Requests", href: "/rfqs", icon: FileText, badge: "4" },
       { label: "Purchase Orders", href: "/purchase-orders", icon: ShoppingCart },
       { label: "Invoices", href: "/invoices", icon: Receipt, badge: "3" },
       { label: "Materials", href: "/materials", icon: Package },
@@ -88,7 +88,10 @@ const buyerNav: NavGroup[] = [
   },
   {
     label: "Approvals",
-    items: [{ label: "My Tasks", href: "/my-tasks", icon: CheckSquare, badge: "3" }],
+    items: [
+      { label: "My Tasks", href: "/my-tasks", icon: CheckSquare, badge: "3" },
+      { label: "Onboarding Reviews", href: "/onboarding-reviews", icon: ShieldCheck, badge: "3" },
+    ],
   },
   {
     label: "Settings",
@@ -104,7 +107,7 @@ const vendorNav: NavGroup[] = [
   {
     label: "Commerce",
     items: [
-      { label: "Quote Requests", href: "/vendor", icon: FileText, badge: "5" },
+      { label: "Quote Requests", href: "/rfqs", icon: FileText, badge: "5" },
       { label: "Purchase Orders", href: "/purchase-orders", icon: ShoppingCart },
       { label: "Invoices", href: "/invoices", icon: Receipt },
       { label: "My Catalogue", href: "/materials", icon: Package },
@@ -120,7 +123,7 @@ const vendorNav: NavGroup[] = [
   },
   {
     label: "Onboarding",
-    items: [{ label: "My Progress", href: "/my-tasks", icon: CheckSquare }],
+    items: [{ label: "My Progress", href: "/onboarding", icon: CheckSquare, badge: "2" }],
   },
   {
     label: "Settings",

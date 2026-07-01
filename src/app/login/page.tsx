@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Eye, EyeOff, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -311,12 +312,12 @@ export default function LoginPage() {
             <div className="mt-10 pt-6 border-t border-border/60">
               <p className="text-[13px] text-muted-foreground font-medium">
                 New to Arbhasoft?{" "}
-                <a
-                  href="#"
+                <Link
+                  href="/register"
                   className="text-foreground font-bold hover:text-primary transition-colors underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-primary"
                 >
                   Register your organisation →
-                </a>
+                </Link>
               </p>
             </div>
 

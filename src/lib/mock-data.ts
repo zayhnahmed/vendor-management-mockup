@@ -646,6 +646,260 @@ export const ORG_MEMBERS: OrgMember[] = [
   { id: "u_5", name: "Omar Farid", email: "omar@northharbor.sa", initials: "OF", role: "Buyer", status: "INVITED", joinedOn: "2026-06-28", lastActive: "—" },
 ];
 
+// ==========================================================================
+// VENDOR ONBOARDING — the 3-step qualification process
+// ==========================================================================
+export type OnboardingStatus =
+  | "NOT_STARTED"
+  | "IN_PROGRESS"
+  | "SUBMITTED"
+  | "APPROVED"
+  | "REJECTED";
+
+export interface OnboardingRelationship {
+  id: string;
+  buyerName: string;
+  buyerShort: string;
+  buyerCity: string;
+  buyerCountry: string;
+  status: OnboardingStatus;
+  currentStep: 1 | 2 | 3;
+  updatedOn: string;
+  category: string;
+}
+
+export const VENDOR_ONBOARDINGS: OnboardingRelationship[] = [
+  {
+    id: "onb_nht",
+    buyerName: "North Harbor Trading Co.",
+    buyerShort: "NHT",
+    buyerCity: "Riyadh",
+    buyerCountry: "Saudi Arabia",
+    status: "APPROVED",
+    currentStep: 3,
+    updatedOn: "2026-05-14",
+    category: "Industrial Trading",
+  },
+  {
+    id: "onb_afg",
+    buyerName: "Al-Faisaliah Group",
+    buyerShort: "AFG",
+    buyerCity: "Riyadh",
+    buyerCountry: "Saudi Arabia",
+    status: "IN_PROGRESS",
+    currentStep: 2,
+    updatedOn: "2026-06-28",
+    category: "Construction",
+  },
+  {
+    id: "onb_gcl",
+    buyerName: "Gulf Construction Ltd.",
+    buyerShort: "GCL",
+    buyerCity: "Jeddah",
+    buyerCountry: "Saudi Arabia",
+    status: "IN_PROGRESS",
+    currentStep: 1,
+    updatedOn: "2026-06-25",
+    category: "Infrastructure",
+  },
+  {
+    id: "onb_ach",
+    buyerName: "Aramco Construction Holdings",
+    buyerShort: "ACH",
+    buyerCity: "Dhahran",
+    buyerCountry: "Saudi Arabia",
+    status: "SUBMITTED",
+    currentStep: 3,
+    updatedOn: "2026-06-30",
+    category: "Energy Infrastructure",
+  },
+];
+
+// ==========================================================================
+// ONBOARDING REVIEWS (buyer side — vendor submissions to review)
+// ==========================================================================
+export interface OnboardingSubmission {
+  id: string;
+  vendorName: string;
+  vendorShort: string;
+  vendorCity: string;
+  vendorCountry: string;
+  category: string;
+  submittedOn: string;
+  status: "SUBMITTED" | "APPROVED" | "REJECTED";
+  // Step 1
+  companyLegalName: string;
+  tradeName: string;
+  yearOfEstablishment: number;
+  entityType: string;
+  registeredAddress: string;
+  businessType: string[];
+  primaryContactName: string;
+  primaryContactEmail: string;
+  primaryContactPhone: string;
+  designation: string;
+  // Step 2
+  bankName: string;
+  bankCode: string;
+  accountHolderName: string;
+  bankCountry: string;
+  currency: string;
+  taxRegistrationNumber: string;
+  annualTurnover: number;
+  yearsInBusiness: number;
+  // Step 3
+  compliesWithLaborLaws: boolean;
+  hasHSEPolicy: boolean;
+  hasAntiBriberyPolicy: boolean;
+  hasLegalIssues: boolean;
+  certifications: Array<{ name: string; issuedBy: string; validUntil: string }>;
+  sustainabilityPractices: string[];
+}
+
+export const ONBOARDING_SUBMISSIONS: OnboardingSubmission[] = [
+  {
+    id: "sub_1",
+    vendorName: "Peninsula Industrial Supplies",
+    vendorShort: "PI",
+    vendorCity: "Sharjah",
+    vendorCountry: "UAE",
+    category: "Industrial",
+    submittedOn: "2026-06-30",
+    status: "SUBMITTED",
+    companyLegalName: "Peninsula Industrial Supplies LLC",
+    tradeName: "Peninsula Industrial",
+    yearOfEstablishment: 2011,
+    entityType: "PRIVATE",
+    registeredAddress: "Industrial Area 4, Sharjah Free Zone, Sharjah, UAE",
+    businessType: ["Distributor", "Manufacturer's rep"],
+    primaryContactName: "Mariam Hassan",
+    primaryContactEmail: "mariam@peninsula-ind.ae",
+    primaryContactPhone: "+971 6 555 8823",
+    designation: "General Manager",
+    bankName: "Emirates NBD",
+    bankCode: "EBILAEAD",
+    accountHolderName: "Peninsula Industrial Supplies LLC",
+    bankCountry: "UAE",
+    currency: "AED",
+    taxRegistrationNumber: "100234876500003",
+    annualTurnover: 18500000,
+    yearsInBusiness: 15,
+    compliesWithLaborLaws: true,
+    hasHSEPolicy: true,
+    hasAntiBriberyPolicy: true,
+    hasLegalIssues: false,
+    certifications: [
+      { name: "ISO 9001:2015", issuedBy: "TÜV Rheinland", validUntil: "2027-04-30" },
+      { name: "ISO 14001:2015", issuedBy: "Bureau Veritas", validUntil: "2026-11-15" },
+    ],
+    sustainabilityPractices: ["Solar-powered warehouse", "Recycling programme", "Green fleet initiative"],
+  },
+  {
+    id: "sub_2",
+    vendorName: "Al-Rashid Bearing House",
+    vendorShort: "AR",
+    vendorCity: "Dammam",
+    vendorCountry: "Saudi Arabia",
+    category: "Bearings",
+    submittedOn: "2026-06-25",
+    status: "SUBMITTED",
+    companyLegalName: "Al-Rashid Bearing House Trading Est.",
+    tradeName: "Al-Rashid Bearings",
+    yearOfEstablishment: 2003,
+    entityType: "PRIVATE",
+    registeredAddress: "King Fahd Industrial Port Road, Dammam 32421, Saudi Arabia",
+    businessType: ["Distributor", "Wholesaler"],
+    primaryContactName: "Salim Al-Khoury",
+    primaryContactEmail: "salim@alrashid-bearings.sa",
+    primaryContactPhone: "+966 13 812 4400",
+    designation: "Managing Director",
+    bankName: "Saudi National Bank",
+    bankCode: "NCBKSAJE",
+    accountHolderName: "Al-Rashid Bearing House Trading Est.",
+    bankCountry: "Saudi Arabia",
+    currency: "SAR",
+    taxRegistrationNumber: "300987654300003",
+    annualTurnover: 8200000,
+    yearsInBusiness: 23,
+    compliesWithLaborLaws: true,
+    hasHSEPolicy: true,
+    hasAntiBriberyPolicy: true,
+    hasLegalIssues: false,
+    certifications: [
+      { name: "ISO 9001:2015", issuedBy: "SGS", validUntil: "2028-01-20" },
+    ],
+    sustainabilityPractices: ["Local sourcing", "Employee training"],
+  },
+  {
+    id: "sub_3",
+    vendorName: "Kuwait Steel Traders",
+    vendorShort: "KS",
+    vendorCity: "Kuwait City",
+    vendorCountry: "Kuwait",
+    category: "Steel & Metals",
+    submittedOn: "2026-06-20",
+    status: "SUBMITTED",
+    companyLegalName: "Kuwait Steel Traders Company W.L.L.",
+    tradeName: "Kuwait Steel",
+    yearOfEstablishment: 1998,
+    entityType: "PRIVATE",
+    registeredAddress: "Shuwaikh Industrial Area 3, Block 4, Kuwait",
+    businessType: ["Trader", "Stockist"],
+    primaryContactName: "Nasser Al-Sabah",
+    primaryContactEmail: "nasser@kwsteel.com.kw",
+    primaryContactPhone: "+965 2483 7712",
+    designation: "Commercial Director",
+    bankName: "National Bank of Kuwait",
+    bankCode: "NBOKKWKW",
+    accountHolderName: "Kuwait Steel Traders Company W.L.L.",
+    bankCountry: "Kuwait",
+    currency: "KWD",
+    taxRegistrationNumber: "800112233400001",
+    annualTurnover: 34600000,
+    yearsInBusiness: 28,
+    compliesWithLaborLaws: true,
+    hasHSEPolicy: true,
+    hasAntiBriberyPolicy: true,
+    hasLegalIssues: false,
+    certifications: [
+      { name: "ISO 9001:2015", issuedBy: "DNV", validUntil: "2027-08-10" },
+      { name: "OHSAS 45001", issuedBy: "DNV", validUntil: "2027-08-10" },
+    ],
+    sustainabilityPractices: ["Certified recycled steel", "Carbon accounting"],
+  },
+];
+
+// ==========================================================================
+// RFQ LIST — buyer side, extended with more items
+// ==========================================================================
+export const RFQS_BUYER_LIST: RfqSummary[] = [
+  ...RECENT_RFQS,
+  {
+    id: "rfq_002",
+    reference: "NHT-24-0002",
+    title: "Diesel supply contract — Q3 2026",
+    status: "AWARDED",
+    createdOn: "2026-05-15",
+    submissionDeadline: "2026-05-28",
+    totalValue: 340000,
+    currency: "SAR",
+    vendorsSelected: 4,
+    quotesReceived: 4,
+  },
+  {
+    id: "rfq_001",
+    reference: "NHT-24-0001",
+    title: "Annual office supplies — administrative HQ",
+    status: "AWARDED",
+    createdOn: "2026-04-20",
+    submissionDeadline: "2026-05-05",
+    totalValue: 45700,
+    currency: "SAR",
+    vendorsSelected: 3,
+    quotesReceived: 3,
+  },
+];
+
 export const VENDOR_RFQS: RfqSummary[] = [
   {
     id: "rfq_v_001",
