@@ -1,0 +1,308 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================================
+ * ARBHASOFT · Vendor Management Platform
+ * Modern SaaS theme with light + dark modes.
+ * Brand tokens: blue (buyer) · orange (vendor) · teal (admin/primary)
+ * ============================================================================ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Arbhasoft brand tokens */
+  --color-buyer: var(--buyer);
+  --color-buyer-foreground: var(--buyer-foreground);
+  --color-buyer-muted: var(--buyer-muted);
+
+  --color-vendor: var(--vendor);
+  --color-vendor-foreground: var(--vendor-foreground);
+  --color-vendor-muted: var(--vendor-muted);
+
+  --color-admin: var(--admin);
+  --color-admin-foreground: var(--admin-foreground);
+  --color-admin-muted: var(--admin-muted);
+
+  --color-success: var(--success);
+  --color-success-muted: var(--success-muted);
+  --color-warning: var(--warning);
+  --color-warning-muted: var(--warning-muted);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* ---------------------------------------------------------------------------
+ * LIGHT THEME
+ * ------------------------------------------------------------------------- */
+:root {
+  --background: #FAFAF9;
+  --foreground: #0C0A09;
+  --card: #FFFFFF;
+  --card-foreground: #0C0A09;
+  --popover: #FFFFFF;
+  --popover-foreground: #0C0A09;
+
+  --primary: #0F7A8A;                 /* Arbhasoft Teal = primary action */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #F5F5F4;
+  --secondary-foreground: #1C1917;
+
+  --muted: #F5F5F4;
+  --muted-foreground: #78716C;
+
+  --accent: #F5F5F4;
+  --accent-foreground: #1C1917;
+
+  --destructive: #DC2626;
+  --border: #E7E5E4;
+  --input: #E7E5E4;
+  --ring: #0F7A8A;
+
+  --chart-1: #1E5FBF;
+  --chart-2: #F7941D;
+  --chart-3: #0F7A8A;
+  --chart-4: #7A7267;
+  --chart-5: #4B8B3B;
+
+  --radius: 0.625rem;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #292524;
+  --sidebar-primary: #0F7A8A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5F4;
+  --sidebar-accent-foreground: #0C0A09;
+  --sidebar-border: #E7E5E4;
+  --sidebar-ring: #0F7A8A;
+
+  /* Arbhasoft brand */
+  --buyer: #1E5FBF;
+  --buyer-foreground: #FFFFFF;
+  --buyer-muted: #EFF4FC;
+
+  --vendor: #F7941D;
+  --vendor-foreground: #FFFFFF;
+  --vendor-muted: #FEF6EA;
+
+  --admin: #0F7A8A;
+  --admin-foreground: #FFFFFF;
+  --admin-muted: #E7F3F5;
+
+  --success: #16A34A;
+  --success-muted: #DCFCE7;
+  --warning: #D97706;
+  --warning-muted: #FEF3C7;
+}
+
+/* ---------------------------------------------------------------------------
+ * DARK THEME — modern near-black with warmed accents
+ * ------------------------------------------------------------------------- */
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FAFAF9;
+  --card: #141414;
+  --card-foreground: #FAFAF9;
+  --popover: #141414;
+  --popover-foreground: #FAFAF9;
+
+  --primary: #22C4D6;                 /* Brightened teal for dark */
+  --primary-foreground: #0A0A0A;
+
+  --secondary: #1F1F1F;
+  --secondary-foreground: #FAFAF9;
+
+  --muted: #1F1F1F;
+  --muted-foreground: #A8A29E;
+
+  --accent: #262626;
+  --accent-foreground: #FAFAF9;
+
+  --destructive: #F87171;
+  --border: #262626;
+  --input: #262626;
+  --ring: #22C4D6;
+
+  --chart-1: #60A5FA;
+  --chart-2: #FBBF24;
+  --chart-3: #22C4D6;
+  --chart-4: #A8A29E;
+  --chart-5: #86EFAC;
+
+  --sidebar: #0F0F0F;
+  --sidebar-foreground: #E7E5E4;
+  --sidebar-primary: #22C4D6;
+  --sidebar-primary-foreground: #0A0A0A;
+  --sidebar-accent: #1F1F1F;
+  --sidebar-accent-foreground: #FAFAF9;
+  --sidebar-border: #262626;
+  --sidebar-ring: #22C4D6;
+
+  /* Arbhasoft brand — brightened for dark */
+  --buyer: #60A5FA;
+  --buyer-foreground: #0A0A0A;
+  --buyer-muted: #172554;
+
+  --vendor: #FBBF24;
+  --vendor-foreground: #0A0A0A;
+  --vendor-muted: #451A03;
+
+  --admin: #22C4D6;
+  --admin-foreground: #0A0A0A;
+  --admin-muted: #164E63;
+
+  --success: #4ADE80;
+  --success-muted: #14532D;
+  --warning: #FBBF24;
+  --warning-muted: #451A03;
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  body {
+    @apply bg-background text-foreground;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Tabular numerics for money and IDs */
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* ---------------------------------------------------------------------------
+ * Aurora — animated brand-color blobs (login page)
+ * ------------------------------------------------------------------------- */
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  25% { transform: translate(30%, -20%) scale(1.15); }
+  50% { transform: translate(15%, 25%) scale(0.95); }
+  75% { transform: translate(-15%, 15%) scale(1.05); }
+}
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0%, 0%) scale(1.1); }
+  25% { transform: translate(-25%, 20%) scale(0.9); }
+  50% { transform: translate(20%, -30%) scale(1.2); }
+  75% { transform: translate(10%, 25%) scale(1); }
+}
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  33% { transform: translate(-30%, -15%) scale(1.15); }
+  66% { transform: translate(25%, 20%) scale(0.9); }
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  pointer-events: none;
+}
+.aurora-blob-1 { animation: aurora-1 22s ease-in-out infinite; }
+.aurora-blob-2 { animation: aurora-2 26s ease-in-out infinite; }
+.aurora-blob-3 { animation: aurora-3 30s ease-in-out infinite; }
+
+/* Grid overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgb(0 0 0 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+}
+.dark .grid-overlay {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+}
+
+/* Floating card gentle bob */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(-2deg); }
+}
+@keyframes float-gentle-2 {
+  0%, 100% { transform: translateY(0) rotate(3deg); }
+  50% { transform: translateY(-4px) rotate(3deg); }
+}
+.float-1 { animation: float-gentle 6s ease-in-out infinite; }
+.float-2 { animation: float-gentle-2 7s ease-in-out infinite 0.5s; }
+
+/* Fade + slide entrance */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Subtle shine on mark */
+@keyframes mark-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.mark-pulse { animation: mark-pulse 3s ease-in-out infinite; }
+
+/* Marquee for trust strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
