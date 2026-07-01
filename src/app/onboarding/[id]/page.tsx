@@ -40,9 +40,9 @@ export default function VendorOnboardingWizard() {
   const next = () => {
     setSaved(true);
     setTimeout(() => setSaved(false), 1500);
-    setStep((s) => Math.min(3, (s + 1) as Step));
+    setStep((s) => Math.min(3, s + 1) as Step);
   };
-  const back = () => setStep((s) => Math.max(1, (s - 1) as Step));
+  const back = () => setStep((s) => Math.max(1, s - 1) as Step);
   const submit = () => {
     setSaved(true);
     setTimeout(() => router.push("/onboarding"), 800);

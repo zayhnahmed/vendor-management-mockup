@@ -27,8 +27,8 @@ export default function RegisterPage() {
   const [submitting, setSubmitting] = React.useState(false);
   const [done, setDone] = React.useState(false);
 
-  const next = () => setStep((s) => Math.min(3, (s + 1) as Step));
-  const back = () => setStep((s) => Math.max(1, (s - 1) as Step));
+  const next = () => setStep((s) => Math.min(3, s + 1) as Step);
+  const back = () => setStep((s) => Math.max(1, s - 1) as Step);
 
   const submit = () => {
     setSubmitting(true);
